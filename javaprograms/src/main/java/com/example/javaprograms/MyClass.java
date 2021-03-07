@@ -4,36 +4,11 @@ import java.util.ArrayList;
 
 public class MyClass {
     public static void main (String [] args){
-        Tree tree = new Tree();
-        tree.insert(7);
-        tree.insert(4);
-        tree.insert(9);
-        tree.insert(1);
-        tree.insert(6);
-        tree.insert(8);
+
+        AVLTree tree = new AVLTree();
         tree.insert(10);
-
-        Tree tree2 = new Tree();
-        tree2.insert(7);
-        tree2.insert(4);
-        tree2.insert(9);
-        tree2.insert(1);
-        tree2.insert(6);
-        tree2.insert(8);
-        tree2.insert(10);
-
-        System.out.println(tree.getAncestors(6));
-
-//        tree.swapRoot();
-//        ArrayList<Integer> list = new ArrayList<>();
-//        list = tree.getNodesAtDistance(2);
-//        for(int value : list)
-//            System.out.println(value);
-//        System.out.println(tree.isBinarySearchTree());
-
-
-
-
+        tree.insert(30);
+        tree.insert(20);
 
 
 
