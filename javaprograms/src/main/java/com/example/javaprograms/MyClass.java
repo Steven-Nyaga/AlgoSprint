@@ -7,20 +7,11 @@ import java.util.PriorityQueue;
 
 public class MyClass {
     public static void main (String [] args){
-        int[] numbers = {5,3,8,4,1,2,10};
-//        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
-//        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-//        for (int num : numbers){
-//            minHeap.add(num);
-//        }
-//        for (int i = 0; i < numbers.length; i++){
-//            numbers[i] = minHeap.remove();
-//        }
-//        System.out.println(Arrays.toString(numbers));
-//        MaxHeap.heapify(numbers);
-//        System.out.println(Arrays.toString(numbers));
-
-        System.out.println(MaxHeap.getKthLargest(numbers, 2));
+        Trie trie = new Trie();
+        trie.insert("canada");
+//        trie.insert("cat");
+//        System.out.println(trie.contains("can"));
+        trie.traverse();
 
 
 
