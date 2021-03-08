@@ -95,4 +95,23 @@ public class AVLTree {
     private void setHeight(AVLNode node){
         node.height = Math.max(height(node.leftChild), height(node.rightChild)) + 1;
     }
+
+    public int isBalanced(){
+        return isBalanced(root);
+    }
+    private int isBalanced(AVLNode root){
+        if (root == null)
+            return 0;
+
+        int leftSide = isBalanced(root.leftChild);
+        if (leftSide == -1)
+            return -1;
+        int rightSide = isBalanced(root.rightChild);
+        if (rightSide == -1)
+            return -1;
+        if (Math.abs(leftSide -rightSide) > 1)
+            return -1;
+
+        return (Math.max(leftSide,rightSide) + 1);
+    }
 }
