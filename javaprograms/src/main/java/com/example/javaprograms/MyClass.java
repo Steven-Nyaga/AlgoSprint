@@ -1,17 +1,26 @@
 package com.example.javaprograms;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.PriorityQueue;
-
 public class MyClass {
     public static void main (String [] args){
-        Trie trie = new Trie();
-        trie.insert("canada");
+
+        Graph graph = new Graph();
+        graph.addNode("A");
+        graph.addNode("B");
+        graph.addNode("C");
+        graph.addNode("D");
+        graph.addNode("E");
+        graph.addEdge("A", "B");
+        graph.addEdge("A", "C");
+        graph.removeEdge("A","C");
+        graph.print();
+
+
+
+//        Trie trie = new Trie();
+//        trie.insert("canada");
 //        trie.insert("cat");
 //        System.out.println(trie.contains("can"));
-        trie.traverse();
+//        trie.traverse();
 
 
 
