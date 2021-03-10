@@ -1,19 +1,15 @@
 package com.example.javaprograms;
 
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+
 public class MyClass {
     public static void main (String [] args){
 
-        Graph graph = new Graph();
-        graph.addNode("A");
-        graph.addNode("B");
-        graph.addNode("C");
-        graph.addNode("D");
-        graph.addNode("E");
-        graph.addEdge("A", "B");
-        graph.addEdge("A", "C");
-        graph.removeEdge("A","C");
-        graph.print();
-
+        Search search = new Search();
+        int[] numbers = {1, 3, 5, 6, 7};
+        int index = search.ternarySearch(numbers, 6);
+        System.out.println(index);
 
 
 //        Trie trie = new Trie();
