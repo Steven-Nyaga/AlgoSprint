@@ -7,9 +7,9 @@ import java.util.PriorityQueue;
 public class MyClass {
     public static void main (String [] args){
 
-        String s = "Hello How Are You";
+        String s = "helLo hOw aRe yoU";
 
-        System.out.println(StringManipulation.reverseWords(s));
+        System.out.println(StringManipulation.isPalindrome("ABBA"));
 
 
 
