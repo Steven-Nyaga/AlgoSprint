@@ -1,15 +1,16 @@
 package com.example.javaprograms;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class MyClass {
     public static void main (String [] args){
 
-        Search search = new Search();
-        int[] numbers = {1, 3, 5, 6, 7};
-        int index = search.ternarySearch(numbers, 6);
-        System.out.println(index);
+        String s = "Hello How Are You";
+
+        System.out.println(StringManipulation.reverseWords(s));
+
 
 
 //        Trie trie = new Trie();
