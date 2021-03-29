@@ -7,9 +7,13 @@ import java.util.PriorityQueue;
 public class MyClass {
     public static void main (String [] args){
 
-        String s = "helLo hOw aRe yoU";
+        LinkedList linkedList = new LinkedList();
+        linkedList.addLast(10);
+        linkedList.addFirst(20);
+        linkedList.addFirst(30);
+        linkedList.removeFirst();
+        System.out.println(linkedList.contains(200));
 
-        System.out.println(StringManipulation.isPalindrome("ABBA"));
 
 
 
