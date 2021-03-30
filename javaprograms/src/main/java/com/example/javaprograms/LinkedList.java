@@ -1,5 +1,7 @@
 package com.example.javaprograms;
 
+
+
 public class LinkedList {
     private class Node{
         private int value;
@@ -94,4 +96,23 @@ public class LinkedList {
         last = current;
         last.next = null;
     }
+
+    public int size(){
+        if (first == null)
+            return -1;
+
+        Node current = first;
+        int count = 1;
+
+        while (current != null){
+            current = current.next;
+            count++;
+        }
+
+        return count;
+    }
+
+//    public int[] toArray(){
+//        int[] array = new int[size()];
+//    }
 }

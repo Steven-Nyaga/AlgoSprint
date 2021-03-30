@@ -12,7 +12,7 @@ public class MyClass {
         linkedList.addFirst(20);
         linkedList.addFirst(30);
         linkedList.removeFirst();
-        System.out.println(linkedList.contains(200));
+        System.out.println(linkedList.size());
 
 
 
