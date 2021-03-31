@@ -112,7 +112,62 @@ public class LinkedList {
         return count;
     }
 
-//    public int[] toArray(){
-//        int[] array = new int[size()];
-//    }
+    public void reverse(){
+        Node p = first;
+        Node c = first.next;
+        while (c != null){
+            Node n = c.next;
+            c.next = p;
+            p = c;
+            c = n;
+        }
+        last = first;
+        last.next = null;
+        first = p;
+    }
+
+    public int getTheKthValueFromLast(int k){
+        Node pointer1 = first;
+        Node pointer2 = first;
+
+        for (int i = 0; i < k - 1; i++)
+            pointer2 = pointer2.next;
+
+        while (pointer2 != last){
+            pointer1 = pointer1.next;
+            pointer2 = pointer2.next;
+        }
+
+        return pointer1.value;
+    }
+
+    public void printMiddle(){
+        Node pointer1 = first;
+        Node pointer2 = first;
+
+        while (pointer2 != last && pointer2.next != last){
+            pointer2 = pointer2.next.next;
+            pointer1 = pointer1.next;
+        }
+
+        if (pointer2 == last)
+            System.out.println(pointer1.value);
+        else
+            System.out.println(pointer1.value + " " + pointer1.next.value);
+    }
+
+    public boolean hasLoop(){
+        Node pointer1 = first;
+        Node pointer2 = first;
+
+        while (pointer2 != null){
+            pointer2 = pointer2.next.next;
+            pointer1 = pointer1.next;
+            if (pointer1 == pointer2){
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

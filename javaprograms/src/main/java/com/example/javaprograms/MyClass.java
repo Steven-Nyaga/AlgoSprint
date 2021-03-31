@@ -9,10 +9,11 @@ public class MyClass {
 
         LinkedList linkedList = new LinkedList();
         linkedList.addLast(10);
+        linkedList.addLast(50);
         linkedList.addFirst(20);
         linkedList.addFirst(30);
-        linkedList.removeFirst();
-        System.out.println(linkedList.size());
+        linkedList.printMiddle();
+        System.out.println(linkedList.hasLoop());
 
 
 
