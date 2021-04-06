@@ -1,29 +1,26 @@
 package com.example.javaprograms;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Stack;
 
 public class MyClass {
     public static void main (String [] args){
 
-        LinkedList linkedList = new LinkedList();
-        linkedList.addLast(10);
-        linkedList.addLast(50);
-        linkedList.addFirst(20);
-        linkedList.addFirst(30);
-        linkedList.printMiddle();
-        System.out.println(linkedList.hasLoop());
-
-
-
-
-//        Trie trie = new Trie();
-//        trie.insert("canada");
-//        trie.insert("cat");
-//        System.out.println(trie.contains("can"));
-//        trie.traverse();
-
+        ArrayQueue queue = new ArrayQueue(5);
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+        int front = queue.dequeue();
+        System.out.println(front);
+        queue.dequeue();
+        queue.enqueue(40);
+        queue.enqueue(50);
+        queue.enqueue(60);
+        System.out.println(queue);
 
 
 
@@ -48,5 +45,15 @@ public class MyClass {
 //        System.out.println(str4);
 //        System.out.println(str5);
 //        System.out.println(military);
+    }
+
+    public static void reverse(Queue<Integer> queue){
+        Stack<Integer> stack = new Stack<>();
+        while (!queue.isEmpty()) {
+            stack.push(queue.remove());
+        }
+        while (!stack.isEmpty()){
+            queue.add(stack.pop());
+        }
     }
 }
