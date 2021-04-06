@@ -10,17 +10,12 @@ import java.util.Stack;
 public class MyClass {
     public static void main (String [] args){
 
-        ArrayQueue queue = new ArrayQueue(5);
+        QueueWithTwoStacks queue = new QueueWithTwoStacks();
         queue.enqueue(10);
         queue.enqueue(20);
         queue.enqueue(30);
-        int front = queue.dequeue();
-        System.out.println(front);
-        queue.dequeue();
-        queue.enqueue(40);
-        queue.enqueue(50);
-        queue.enqueue(60);
-        System.out.println(queue);
+        int first = queue.dequeue();
+        System.out.println(first);
 
 
 
