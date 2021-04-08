@@ -3,19 +3,19 @@ package com.example.javaprograms;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Stack;
 
 public class MyClass {
     public static void main (String [] args){
 
-        QueueWithTwoStacks queue = new QueueWithTwoStacks();
-        queue.enqueue(10);
-        queue.enqueue(20);
-        queue.enqueue(30);
-        int first = queue.dequeue();
-        System.out.println(first);
+        PriorityQueue queue = new PriorityQueue();
+        queue.add(3);
+        queue.add(5);
+        queue.add(6);
+        queue.add(1);
+        queue.add(4);
+        System.out.println(queue);
 
 
 
