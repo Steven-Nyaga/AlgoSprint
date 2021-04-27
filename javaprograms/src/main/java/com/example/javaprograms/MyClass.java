@@ -9,13 +9,10 @@ import java.util.Stack;
 public class MyClass {
     public static void main (String [] args){
 
-        PriorityQueue queue = new PriorityQueue();
-        queue.add(3);
-        queue.add(5);
-        queue.add(6);
-        queue.add(1);
-        queue.add(4);
-        System.out.println(queue);
+        Sort sort = new Sort();
+        int[] array = {8,2,4,1,3};
+        sort.mergeSort(array);
+        System.out.println(Arrays.toString(array));
 
 
 
