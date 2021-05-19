@@ -9,10 +9,17 @@ import java.util.Stack;
 public class MyClass {
     public static void main (String [] args){
 
-        Sort sort = new Sort();
-        int[] array = {8,2,4,1,3};
-        sort.mergeSort(array);
-        System.out.println(Arrays.toString(array));
+        Tree tree = new Tree();
+        tree.insert(7);
+        tree.insert(4);
+        tree.insert(9);
+        tree.insert(1);
+        tree.insert(6);
+        tree.insert(8);
+        tree.insert(10);
+        System.out.println("Done");
+
+
 
 
 
