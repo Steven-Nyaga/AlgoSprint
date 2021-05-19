@@ -45,4 +45,21 @@ public class Tree {
             }
         }
     }
+
+    public boolean find(int val) {
+        if (root == null)
+            return false;
+
+        Node current = root;
+        while (current != null) {
+            if (val == current.value)
+                return true;
+            else if (val < current.value)
+                current = current.leftChild;
+            else if (val > current.value)
+                current = current.rightChild;
+        }
+
+        return false;
+    }
 }
