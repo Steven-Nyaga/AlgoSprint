@@ -62,4 +62,43 @@ public class Tree {
 
         return false;
     }
+
+    //Traversal with recursion
+    public void preOrderTraversal() {
+        preOrderTraversal(root);
+    }
+    private void preOrderTraversal(Node root) {
+        if (root == null)
+            return;
+
+        System.out.println(root.value);
+        preOrderTraversal(root.leftChild);
+        preOrderTraversal(root.rightChild);
+    }
+
+    public void inOrderTraversal() {
+        inOrderTraversal(root);
+    }
+    private void inOrderTraversal(Node root) {
+        if (root == null)
+            return;
+
+        inOrderTraversal(root.leftChild);
+        System.out.println(root.value);
+        inOrderTraversal(root.rightChild);
+    }
+
+    public void postOrderTraversal() {
+        postOrderTraversal(root);
+    }
+    private void postOrderTraversal(Node root) {
+        if (root == null)
+            return;
+
+        postOrderTraversal(root.leftChild);
+        postOrderTraversal(root.rightChild);
+        System.out.println(root.value);
+    }
+
+    
 }

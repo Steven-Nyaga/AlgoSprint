@@ -17,8 +17,11 @@ public class MyClass {
         tree.insert(6);
         tree.insert(8);
         tree.insert(10);
-        System.out.println(tree.find(2));
-
+        tree.preOrderTraversal();
+        System.out.println("***************************************");
+        tree.inOrderTraversal();
+        System.out.println("***************************************");
+        tree.postOrderTraversal();
 
 
 
