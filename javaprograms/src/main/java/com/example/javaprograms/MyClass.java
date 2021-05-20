@@ -17,7 +17,7 @@ public class MyClass {
         tree.insert(6);
         tree.insert(8);
         tree.insert(10);
-        tree.inOrderWithoutRecursion();
+        tree.levelOrderTraversal();
 
 
 

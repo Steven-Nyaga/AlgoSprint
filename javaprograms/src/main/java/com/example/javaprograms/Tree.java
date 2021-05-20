@@ -1,5 +1,7 @@
 package com.example.javaprograms;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class Tree {
@@ -121,6 +123,35 @@ public class Tree {
             current = stack.pop();
             System.out.print(current.value + " ");
             current = current.rightChild;
+        }
+    }
+
+    //Level order traversal
+    public void levelOrderTraversal() {
+        levelOrderTraversal(root);
+    }
+    private void levelOrderTraversal(Node root) {
+        if (root == null)
+            return;
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            /* poll() removes the present head.
+            For more information on poll() visit
+            http://www.tutorialspoint.com/java/
+            util/linkedlist_poll.htm */
+            Node tempNode = queue.poll();
+            System.out.print(tempNode.value + " ");
+
+            if (tempNode.leftChild != null) {
+                queue.add(tempNode.leftChild);
+            }
+
+            if (tempNode.rightChild != null) {
+                queue.add(tempNode.rightChild);
+            }
         }
     }
 }
