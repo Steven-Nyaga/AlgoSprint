@@ -1,5 +1,7 @@
 package com.example.javaprograms;
 
+import java.util.Stack;
+
 public class Tree {
     private class Node {
         private int value;
@@ -100,5 +102,25 @@ public class Tree {
         System.out.println(root.value);
     }
 
-    
+    //traversal without recursion
+    public void inOrderWithoutRecursion() {
+        inOrderWithoutRecursion(root);
+    }
+    private void inOrderWithoutRecursion(Node root) {
+        if (root == null)
+            return;
+
+        Stack<Node> stack = new Stack<>();
+        Node current = root;
+
+        while (current != null || stack.size() > 0) {
+            while (current != null) {
+                stack.push(current);
+                current = current.leftChild;
+            }
+            current = stack.pop();
+            System.out.print(current.value + " ");
+            current = current.rightChild;
+        }
+    }
 }
