@@ -197,6 +197,38 @@ public class Tree {
         return Math.max(Math.max(left,right), root.value);
     }
 
+    //Min Number of Binary Search Tree
+    public int minBST(){
+        if (root == null)
+            return -1;
+
+        Node current = root;
+        Node last = null;
+
+        while (current != null) {
+            last = current;
+            current = current.leftChild;
+        }
+
+        return last.value;
+    }
+
+    //Max Number of Binary Search Tree
+    public int maxBST(){
+        if (root == null)
+            return -1;
+
+        Node current = root;
+        Node last = null;
+
+        while (current != null) {
+            last = current;
+            current = current.rightChild;
+        }
+
+        return last.value;
+    }
+
     //Check for leaf
     private boolean isLeaf(Node node) {
         return node.leftChild == null && node.rightChild == null;
