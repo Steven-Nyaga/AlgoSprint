@@ -163,9 +163,42 @@ public class Tree {
         if (root == null)
             return -1;
 
-        if (root.leftChild == null && root.rightChild == null)
+        if (isLeaf(root))
             return 0;
 
         return 1 + Math.max(height(root.leftChild), height(root.rightChild));
+    }
+
+    //Min Number in Binary Tree
+    public int min() {
+        return min(root);
+    }
+    private int min(Node root) {
+        if (isLeaf(root))
+            return root.value;
+
+        int left = min(root.leftChild);
+        int right = min(root.rightChild);
+
+        return Math.min(Math.min(left,right), root.value);
+    }
+
+    //Max Number in Binary Tree
+    public int max() {
+        return max(root);
+    }
+    private int max(Node root) {
+        if (isLeaf(root))
+            return root.value;
+
+        int left = max(root.leftChild);
+        int right = max(root.rightChild);
+
+        return Math.max(Math.max(left,right), root.value);
+    }
+
+    //Check for leaf
+    private boolean isLeaf(Node node) {
+        return node.leftChild == null && node.rightChild == null;
     }
 }
