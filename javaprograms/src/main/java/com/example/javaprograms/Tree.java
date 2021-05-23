@@ -267,6 +267,23 @@ public class Tree {
                 && validateBST(root.rightChild, root.value + 1, max);
     }
 
+    //Nodes at K distance
+    public void printNodesAtDistance(int d) {
+        printNodesAtDistance(root, d);
+    }
+    private void printNodesAtDistance(Node root, int d) {
+        if (root == null)
+            return;
+
+        if (d == 0) {
+            System.out.println(root.value);
+            return;
+        }
+
+        printNodesAtDistance(root.leftChild, d - 1);
+        printNodesAtDistance(root.rightChild, d - 1);
+    }
+
     //Check for leaf
     private boolean isLeaf(Node node) {
         return node.leftChild == null && node.rightChild == null;

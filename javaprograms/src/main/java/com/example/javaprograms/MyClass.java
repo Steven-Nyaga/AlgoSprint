@@ -17,8 +17,8 @@ public class MyClass {
         tree.insert(6);
         tree.insert(8);
         tree.insert(10);
-        tree.swap();
-        System.out.println(tree.validateBST());
+        tree.printNodesAtDistance(1);
+
 
 
 
