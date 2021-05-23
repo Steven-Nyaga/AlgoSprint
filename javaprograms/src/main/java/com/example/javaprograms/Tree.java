@@ -245,6 +245,28 @@ public class Tree {
         return false;
     }
 
+    //Swapping BST to become BT
+    public void swap() {
+        Node temp = root.leftChild;
+        root.leftChild = root.rightChild;
+        root.rightChild = temp;
+    }
+
+    // Validating BST
+    public boolean validateBST(){
+        return validateBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+    private boolean validateBST(Node root, int min, int max){
+        if (root == null)
+            return true;
+
+        if (root.value < min || root.value > max)
+            return false;
+
+        return validateBST(root.leftChild, min, root.value - 1)
+                && validateBST(root.rightChild, root.value + 1, max);
+    }
+
     //Check for leaf
     private boolean isLeaf(Node node) {
         return node.leftChild == null && node.rightChild == null;
