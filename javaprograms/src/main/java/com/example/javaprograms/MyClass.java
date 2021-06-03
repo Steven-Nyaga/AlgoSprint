@@ -3,6 +3,7 @@ package com.example.javaprograms;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -10,15 +11,16 @@ public class MyClass {
     public static void main (String [] args){
 
         Graph graph = new Graph();
+        graph.addNode("X");
         graph.addNode("A");
         graph.addNode("B");
-        graph.addNode("C");
-        graph.addNode("D");
-        graph.addEdge("A", "B");
-        graph.addEdge("B", "D");
-        graph.addEdge("D", "C");
-        graph.addEdge("A", "C");
-        graph.traverseBF("A");
+        graph.addNode("P");
+        graph.addEdge("X", "A");
+        graph.addEdge("X", "B");
+        graph.addEdge("A", "P");
+        graph.addEdge("B", "P");
+        List<String> list = graph.topologicalSort();
+        System.out.println(list);
 
 
 

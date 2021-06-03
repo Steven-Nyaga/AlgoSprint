@@ -138,4 +138,31 @@ public class Graph {
                     queue.add(neighbour);
         }
     }
+
+    public List<String> topologicalSort() {
+        Stack<Node> stack = new Stack<>();
+        Set<Node> visited = new HashSet<>();
+
+        for (Node node : nodes.values())
+            topologicalSort(node, stack, visited);
+
+        List<String> sorted = new ArrayList<>();
+
+        while (!stack.isEmpty())
+            sorted.add(stack.pop().label);
+
+        return sorted;
+    }
+
+    private void topologicalSort(Node node, Stack<Node> stack, Set<Node> visited){
+        if (visited.contains(node))
+            return;
+
+        visited.add(node);
+
+        for (Node neighbour : adjacencyList.get(node))
+            topologicalSort(neighbour, stack, visited);
+
+        stack.push(node);
+    }
 }
