@@ -14,12 +14,11 @@ public class MyClass {
         graph.addNode("B");
         graph.addNode("C");
         graph.addNode("D");
-        graph.addNode("E");
         graph.addEdge("A", "B");
-        graph.addEdge("A", "C");
         graph.addEdge("B", "D");
-        graph.addEdge("D", "E");
-        graph.print();
+        graph.addEdge("D", "C");
+        graph.addEdge("A", "C");
+        graph.traverseDFI("A");
 
 
 
