@@ -18,7 +18,7 @@ public class MyClass {
         graph.addEdge("B", "D");
         graph.addEdge("D", "C");
         graph.addEdge("A", "C");
-        graph.traverseDFI("A");
+        graph.traverseBF("A");
 
 
 

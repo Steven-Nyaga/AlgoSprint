@@ -114,4 +114,28 @@ public class Graph {
                     stack.push(neighbour);
         }
     }
+
+    public void traverseBF(String root) {
+        Node node = nodes.get(root);
+        if (node == null)
+            return;
+
+        Set<Node> visited = new HashSet<>();
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(node);
+
+        while (!queue.isEmpty()) {
+            Node current = queue.poll();
+
+            if (visited.contains(current))
+                continue;
+
+            System.out.println(current);
+            visited.add(current);
+
+            for (Node neighbour : adjacencyList.get(current))
+                if (!visited.contains(neighbour))
+                    queue.add(neighbour);
+        }
+    }
 }
