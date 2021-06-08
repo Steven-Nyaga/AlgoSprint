@@ -11,16 +11,13 @@ public class MyClass {
     public static void main (String [] args){
 
         Graph graph = new Graph();
-        graph.addNode("X");
         graph.addNode("A");
         graph.addNode("B");
-        graph.addNode("P");
-        graph.addEdge("X", "A");
-        graph.addEdge("X", "B");
-        graph.addEdge("A", "P");
-        graph.addEdge("B", "P");
-        List<String> list = graph.topologicalSort();
-        System.out.println(list);
+        graph.addNode("C");
+        graph.addEdge("A", "B");
+        graph.addEdge("B", "C");
+        graph.addEdge("C", "A");
+        System.out.println(graph.isCycle());
 
 
 
