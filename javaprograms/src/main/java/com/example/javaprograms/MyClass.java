@@ -10,14 +10,13 @@ import java.util.Stack;
 public class MyClass {
     public static void main (String [] args){
 
-        Graph graph = new Graph();
+        WeightedGraph graph = new WeightedGraph();
         graph.addNode("A");
         graph.addNode("B");
         graph.addNode("C");
-        graph.addEdge("A", "B");
-        graph.addEdge("B", "C");
-        graph.addEdge("C", "A");
-        System.out.println(graph.isCycle());
+        graph.addEdge("A", "B", 3);
+        graph.addEdge("A", "C", 2);
+        graph.print();
 
 
 
