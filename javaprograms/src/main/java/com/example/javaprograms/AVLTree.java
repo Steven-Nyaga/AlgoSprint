@@ -2,6 +2,7 @@ package com.example.javaprograms;
 
 public class AVLTree {
     private class AVLNode {
+        private int height;
         private int value;
         private AVLNode leftChild;
         private AVLNode rightChild;
@@ -31,6 +32,11 @@ public class AVLTree {
         if (value > root.value)
             root.rightChild = insert(root.rightChild, value);
 
+        root.height = Math.max(height(root.leftChild), height(root.rightChild)) + 1;
+
         return root;
+    }
+    private int height(AVLNode node) {
+        return (node == null) ? -1 : node.height;
     }
 }
