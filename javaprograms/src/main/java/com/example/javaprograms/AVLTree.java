@@ -32,14 +32,15 @@ public class AVLTree {
         if (value > root.value)
             root.rightChild = insert(root.rightChild, value);
 
-        root.height = Math.max(height(root.leftChild), height(root.rightChild)) + 1;
+        setHeight(root);
 
-        balance(root);
-
-        return root;
+        return balance(root);
     }
     private int height(AVLNode node) {
         return (node == null) ? -1 : node.height;
+    }
+    private int setHeight(AVLNode node){
+        return Math.max(height(node.leftChild), height(node.rightChild)) + 1;
     }
     private int balanceFactor(AVLNode node){
         return (node == null) ? 0 : height(node.leftChild) - height(node.rightChild);
@@ -50,16 +51,42 @@ public class AVLTree {
     private boolean isRightHeavy(AVLNode node){
         return balanceFactor(node) < -1;
     }
-    private void balance(AVLNode node){
+    private AVLNode balance(AVLNode node){
         if (isLeftHeavy(node)){
             if (balanceFactor(node.leftChild) < 0)
-                System.out.println(node.leftChild.value + " Needs left rotation");
-            System.out.println(node.value + " Needs Right rotation");
+                node.leftChild = leftRotation(node.leftChild);
+            return rightRotation(node);
         }
         if (isRightHeavy(node)){
             if (balanceFactor(node.rightChild) > 0)
-                System.out.println(node.rightChild.value + " Needs left rotation");
-            System.out.println(node.value + " Needs Right rotation");
+                node.rightChild = rightRotation(node.rightChild);
+            return leftRotation(node);
         }
+
+        return node;
+    }
+
+    private AVLNode leftRotation(AVLNode node){
+        AVLNode newRoot = node.rightChild;
+
+        node.rightChild = node.leftChild;
+        node.leftChild = node;
+
+        setHeight(node);
+        setHeight(newRoot);
+
+        return newRoot;
+    }
+
+    private AVLNode rightRotation(AVLNode node){
+        AVLNode newRoot = node.leftChild;
+
+        node.leftChild = node.rightChild;
+        node.rightChild = node;
+
+        setHeight(node);
+        setHeight(newRoot);
+
+        return newRoot;
     }
 }
