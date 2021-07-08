@@ -11,9 +11,8 @@ public class MyClass {
     public static void main (String [] args){
 
         Trie trie = new Trie();
-        trie.insert("cat");
-        trie.insert("can");
-        System.out.println("Done");
+        trie.insert("canada");
+        System.out.println(trie.contains("canada"));
 
 
 

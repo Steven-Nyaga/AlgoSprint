@@ -30,6 +30,7 @@ public class Trie {
         public Node getChild(char ch) {
             return children.get(ch);
         }
+        
     }
 
     Node root = new Node(' ');
@@ -42,5 +43,18 @@ public class Trie {
             current = current.getChild(ch);
         }
         current.isEndWord = true;
+    }
+
+    public boolean contains(String word) {
+        if (word == null)
+            return false;
+
+        Node current = root;
+        for (char ch : word.toCharArray()){
+            if (!current.hasChild(ch))
+                return false;
+            current = current.getChild(ch);
+        }
+        return current.isEndWord;
     }
 }
