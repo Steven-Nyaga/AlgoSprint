@@ -1,5 +1,7 @@
 package com.example.javaprograms;
 
+import com.sun.org.apache.xalan.internal.xsltc.dom.SimpleResultTreeImpl;
+
 import java.util.HashMap;
 
 public class Trie {
@@ -33,6 +35,14 @@ public class Trie {
 
         public Node[] getChildren() {
             return children.values().toArray(new Node[0]);
+        }
+
+        public boolean hasChildren() {
+            return !children.isEmpty();
+        }
+
+        public void removeChild(char ch) {
+            children.remove(ch);
         }
     }
 
@@ -71,5 +81,26 @@ public class Trie {
             traversal(child);
 
 //        System.out.println(root.value);
+    }
+
+    public void remove(String word) {
+        if (word == null)
+            return;
+        remove(root, word, 0);
+    }
+    private void remove(Node root, String word, int index) {
+        if (index == word.length()){
+            root.isEndWord = false;
+            return;
+        }
+        char ch = word.charAt(index);
+        Node child = root.getChild(ch);
+        if (child == null)
+            return;
+
+        remove(child, word, index + 1);
+
+        if (!child.hasChildren() && !child.isEndWord)
+            root.removeChild(ch);
     }
 }
