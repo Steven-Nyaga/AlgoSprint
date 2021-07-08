@@ -10,10 +10,10 @@ import java.util.Stack;
 public class MyClass {
     public static void main (String [] args){
 
-        AVLTree tree = new AVLTree();
-        tree.insert(10);
-        tree.insert(30);
-        tree.insert(20);
+        Trie trie = new Trie();
+        trie.insert("cat");
+        trie.insert("can");
+        System.out.println("Done");
 
 
 
