@@ -12,8 +12,8 @@ public class MyClass {
 
         Trie trie = new Trie();
         trie.insert("canada");
-        System.out.println(trie.contains("canada"));
-
+//        System.out.println(trie.contains("canada"));
+        trie.traversal();
 
 
 
