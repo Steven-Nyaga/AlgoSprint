@@ -2,7 +2,9 @@ package com.example.javaprograms;
 
 import com.sun.org.apache.xalan.internal.xsltc.dom.SimpleResultTreeImpl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Trie {
     public static int ALPHABET_SIZE = 26;
@@ -102,5 +104,37 @@ public class Trie {
 
         if (!child.hasChildren() && !child.isEndWord)
             root.removeChild(ch);
+    }
+
+    public List<String> findWords(String prefix) {
+        List<String> words = new ArrayList<>();
+        Node lastNode = findLastNode(prefix);
+        findWords(lastNode, prefix, words);
+
+        return words;
+    }
+    private void findWords(Node root, String prefix, List<String> words){
+     if (root == null)
+         return;
+
+     if (root.isEndWord)
+         words.add(prefix);
+
+     for (Node child : root.getChildren())
+         findWords(child, prefix + child.value, words);
+
+    }
+    private Node findLastNode(String prefix) {
+        if (prefix == null)
+            return null;
+        
+        Node current = root;
+        for (char ch : prefix.toCharArray()){
+            Node child = current.getChild(ch);
+            if (child == null)
+                return null;
+            current = child;
+        }
+        return current;
     }
 }
