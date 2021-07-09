@@ -16,8 +16,8 @@ public class MyClass {
         trie.insert("care");
         trie.insert("careful");
         trie.insert("egg");
-        List<String> words = trie.findWords("car");
-        System.out.println(words);
+//        List<String> words = trie.findWords("car");
+        System.out.println(trie.countWords());
 
 
 

@@ -127,7 +127,7 @@ public class Trie {
     private Node findLastNode(String prefix) {
         if (prefix == null)
             return null;
-        
+
         Node current = root;
         for (char ch : prefix.toCharArray()){
             Node child = current.getChild(ch);
@@ -136,5 +136,20 @@ public class Trie {
             current = child;
         }
         return current;
+    }
+
+    public int countWords(){
+        return countWords(root);
+    }
+    private int countWords(Node root){
+        int total = 0;
+
+        if (root.isEndWord)
+            total += 1;
+
+        for (Node child : root.getChildren())
+            total += countWords(child);
+
+        return total;
     }
 }
