@@ -14,22 +14,74 @@ public class Heap {
 
         bubbleUp(index);
     }
+
     public boolean isFull() {
         return size == items.length;
     }
+
     private void bubbleUp(int index) {
         while (index > 0 && items[index] > items[getParent(index)]) {
             swap(index, getParent(index));
             index = getParent(index);
         }
     }
+
     private int getParent(int index) {
         return (index - 1) / 2;
     }
+
     private void swap(int first, int second) {
         int temp = items[first];
         items[first] = items[second];
         items[second] = temp;
+    }
+
+    public void remove() {
+        if (isEmpty())
+            throw new IllegalStateException();
+
+        items[0] = items[--size];
+
+        int index = 0;
+
+        bubbleDown(index);
+    }
+
+    private void bubbleDown(int index) {
+        while (index <= size && !isValid(index)){
+            int largerIndex = getLargerIndex(index);
+            swap(index, largerIndex);
+            index = largerIndex;
+        }
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    private int leftChildIndex(int index) {
+        return (index * 2) + 1;
+    }
+
+    private int rightChildIndex(int index) {
+        return (index * 2) + 2;
+    }
+
+    private int leftChild(int index) {
+        return items[leftChildIndex(index)];
+    }
+
+    private int rightChild(int index) {
+        return items[rightChildIndex(index)];
+    }
+
+    private boolean isValid(int index) {
+        return items[index] >= leftChild(index) && items[index] >= rightChild(index);
+    }
+
+    private int getLargerIndex(int index) {
+        return (leftChild(index) > rightChild(index)) ?
+                leftChildIndex(index) : rightChildIndex(index);
     }
 
 }

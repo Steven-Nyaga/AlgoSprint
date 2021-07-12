@@ -14,6 +14,7 @@ public class MyClass {
         heap.insert(10);
         heap.insert(4);
         heap.insert(17);
+        heap.remove();
         System.out.println("Done");
 
 
