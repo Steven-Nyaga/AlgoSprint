@@ -10,14 +10,11 @@ import java.util.Stack;
 public class MyClass {
     public static void main (String [] args){
 
-        Trie trie = new Trie();
-        trie.insert("car");
-        trie.insert("card");
-        trie.insert("care");
-        trie.insert("careful");
-        trie.insert("egg");
-//        List<String> words = trie.findWords("car");
-        System.out.println(trie.countWords());
+        Heap heap = new Heap();
+        heap.insert(10);
+        heap.insert(4);
+        heap.insert(17);
+        System.out.println("Done");
 
 
 
