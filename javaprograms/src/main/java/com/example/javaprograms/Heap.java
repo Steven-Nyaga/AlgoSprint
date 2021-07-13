@@ -36,15 +36,18 @@ public class Heap {
         items[second] = temp;
     }
 
-    public void remove() {
+    public int remove() {
         if (isEmpty())
             throw new IllegalStateException();
 
+        int value = items[0];
         items[0] = items[--size];
 
         int index = 0;
 
         bubbleDown(index);
+
+        return value;
     }
 
     private void bubbleDown(int index) {
@@ -103,6 +106,20 @@ public class Heap {
     }
     private  boolean hasRightChild(int index) {
         return rightChildIndex(index) <= size;
+    }
+
+    public int[] heapSort(int[] array, Heap heap) {
+        for (int num : array)
+            heap.insert(num);
+        //Descending
+//        for (int i = 0; i < array.length; i++)
+//            array[i] = heap.remove();
+
+        //Ascending
+        for (int i = array.length - 1; i >= 0; i--)
+            array[i] = heap.remove();
+
+        return array;
     }
 
 }

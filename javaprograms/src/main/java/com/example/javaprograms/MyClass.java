@@ -14,8 +14,9 @@ public class MyClass {
         heap.insert(10);
         heap.insert(4);
         heap.insert(17);
-        heap.remove();
-        System.out.println("Done");
+        int[] array = {5, 3, 10, 1, 4, 2};
+        Heap heap1 = new Heap();
+        System.out.println(Arrays.toString(heap.heapSort(array, heap1)));
 
 
 
