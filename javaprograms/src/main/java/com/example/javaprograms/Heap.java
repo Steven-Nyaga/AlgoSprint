@@ -122,4 +122,10 @@ public class Heap {
         return array;
     }
 
+    public  int max(){
+        if (isEmpty())
+            throw new IllegalStateException();
+        return items[0];
+    }
+
 }

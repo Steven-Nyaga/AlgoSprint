@@ -12,7 +12,7 @@ public class MyClass {
 
         int[] numbers = {5, 3, 8, 4, 1, 2};
         MaxHeap.heapify(numbers);
-        System.out.println(Arrays.toString(numbers));
+        System.out.println(MaxHeap.getTheKthLargest(numbers, 3));
 
 
 
