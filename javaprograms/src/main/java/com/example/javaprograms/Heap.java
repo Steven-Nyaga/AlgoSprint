@@ -76,12 +76,33 @@ public class Heap {
     }
 
     private boolean isValid(int index) {
+        if (!hasLeftChild(index))
+            return true;
+
+        if (!hasRightChild(index))
+            return items[index] >= leftChild(index);
+
         return items[index] >= leftChild(index) && items[index] >= rightChild(index);
     }
 
     private int getLargerIndex(int index) {
+        //if there is no left child it means the node has no children because in heaps
+        //we fill nodes from left to right
+        if (!hasLeftChild(index))
+            return index;
+
+        if (!hasRightChild(index))
+            return leftChildIndex(index);
+
         return (leftChild(index) > rightChild(index)) ?
                 leftChildIndex(index) : rightChildIndex(index);
+    }
+
+    private  boolean hasLeftChild(int index) {
+        return leftChildIndex(index) <= size;
+    }
+    private  boolean hasRightChild(int index) {
+        return rightChildIndex(index) <= size;
     }
 
 }
