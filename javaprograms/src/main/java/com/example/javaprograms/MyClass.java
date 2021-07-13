@@ -10,13 +10,9 @@ import java.util.Stack;
 public class MyClass {
     public static void main (String [] args){
 
-        Heap heap = new Heap();
-        heap.insert(10);
-        heap.insert(4);
-        heap.insert(17);
-        int[] array = {5, 3, 10, 1, 4, 2};
-        Heap heap1 = new Heap();
-        System.out.println(Arrays.toString(heap.heapSort(array, heap1)));
+        int[] numbers = {5, 3, 8, 4, 1, 2};
+        MaxHeap.heapify(numbers);
+        System.out.println(Arrays.toString(numbers));
 
 
 
